@@ -1,38 +1,140 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.landingContainer {
+  /* span the entire desktop height : height: 100vh;*/
+  height: 100vh;
+  font-family: helvetica;
+  /* set a gradient background with 3 colours https://coolors.co/ */
+  background: linear-gradient(
+    to right,
+    rgba(192, 82, 82, 0.55),
+    rgba(32, 164, 243),
+    rgba(11, 79, 108)
+  );
+}
+
+.centered {
+  /* center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* so it takes up its containers height (landingContainer)*/
+  height: inherit;
+}
+
+.title {
+  color: whitesmoke;
+  /* cover the entire page width : font-size: 10vw;*/
+  font-size: 10vw;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* The real deal  starts here*/
+.glassContainer {
+  position: absolute;
+  /* center content */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.cover {
+  transition: 0.5s all ease;
+  height: 70%;
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.25);
+  /* box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit; */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* For the fog-like glass effect */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+/* responsiveness */
+
+@media (max-width: 700px) {
+  .cover {
+    height: 30%;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+  width: 100%;
+  padding-top: 0px;
+}
+
+.header-content {
+  backdrop-filter: blur(3px);
+  background-color: rgba(15, 15, 16, 0.6);
+  border-radius: 1px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 1px 1px 1px;
+  border-bottom: 1px solid #000;
+}
+
+.header-title {
+  margin: 0 0 5px 0px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.header-subtitle {
+  margin: 0px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.header-legend {
+  text-align: right;
+}
+
+.header-logo {
+  background-color: #333;
+  padding: 0px;
+  border-radius: 15px;
+  text-align: right;
+}
+
+.header-company .header-title,
+.header-company .header-subtitle {
+  color: #fff;
+}
+
+.header-legend .header-title {
+  font-weight: normal;
+}
+
+.header-legend .header-title,
+.header-legend .header-subtitle {
+  color: #fff;
+}
+
+.footer {
+  width: 100%;
+  padding-bottom: 35px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #fff;
+  padding-left: 10px;
+  padding-top: 10px;
 }
